@@ -23,7 +23,7 @@ const Banner = () => {
           </span>
         </button>
       </div>
-      <div className="flex items-center justify-center  justify-items-center  gap-[47px]">
+      <div className="flex items-center justify-center  justify-items-center  gap-[30px]">
         <div className="flex w-[234px] h-[49px] gap-3">
           <Image
             src="/images/Image1.png"
