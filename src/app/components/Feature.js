@@ -1,7 +1,14 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const Feature = () => {
+  const [isHidden, setIsHidden] = useState(false);
+
+  const toggleVisibility = () => {
+    setIsHidden(!isHidden);
+  };
+
   const buttons = [
     { label: "Trending", bgColor: "#5C4FFF", textColor: "white", icon: true },
     { label: "Design", bgColor: "white", textColor: "black", border: true },
@@ -48,7 +55,7 @@ const Feature = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center gap-[41px]">
+      <div className="flex flex-col justify-center items-center gap-[41px] mx-[124px]">
         <div className="flex h-[52px] flex-shrink-0 gap-[23px]">
           {buttons.map((button, index) => (
             <button
@@ -60,7 +67,7 @@ const Feature = () => {
                 backgroundColor: button.bgColor,
                 color: button.textColor,
                 width:
-                  button.label === "Marketing & Analytics" ? "340px" : "186px",
+                  button.label === "Marketing & Analytics" ? "340px" : "190px",
               }}
             >
               {button.icon && (
@@ -131,22 +138,45 @@ const Feature = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-between items-center rounded-xl bg-white h-[168px] flex-shrink-0 mx-[88px] my-[60px] px-[70px]">
-        <div className="text-black font-poppins text-[32px] font-light leading-[90px]">
-          <span className="font-light">Want to in</span>
-          <span className="font-medium  pl-1">be Featured List?</span>
-        </div>
-        <div className="flex w-[500px] h-[50px] justify-between items-center shrink-0 padding: 9px 77.641px 9px 30px rounded-xl bg-[#F9F8FF]">
-          <input
-            type="text"
-            className="flex-grow h-full px-4 rounded-l-[50px] border-none outline-none"
-            placeholder="Email Address"
-          />
-          <button className="flex w-[241px] h-[50px]  justify-center items-center shrink-0 rounded-xl bg-[#FBFF28] cursor-pointer">
-            <span className="text-[#333] text-center font-poppins  font-regular text-[18px] leading-[32px]">
-              Search Now
-            </span>
-          </button>
+      <div
+        className={`flex flex-col justify-center rounded-xl bg-white h-[168px] flex-shrink-0 mx-[124px] mt-[60px] ${
+          isHidden ? "hidden" : ""
+        }`}
+      >
+        <button
+          className="w-[22px] h-[22px] flex-shrink-0 aspect-square self-end pr-12 cursor-pointer"
+          onClick={toggleVisibility}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M5.86634 17.4166L4.58301 16.1333L9.71634 10.9999L4.58301 5.86659L5.86634 4.58325L10.9997 9.71659L16.133 4.58325L17.4163 5.86659L12.283 10.9999L17.4163 16.1333L16.133 17.4166L10.9997 12.2833L5.86634 17.4166Z"
+              fill="#5C4FFF"
+            />
+          </svg>
+        </button>
+        <div className="flex justify-between items-center px-[70px]">
+          <div className="text-black font-poppins text-[32px] font-light leading-[90px]">
+            <span className="font-light">Want to in</span>
+            <span className="font-medium pl-1">be Featured List?</span>
+          </div>
+          <div className="flex w-[500px] h-[50px] justify-between items-center shrink-0 padding: 9px 77.641px 9px 30px rounded-xl bg-[#F9F8FF]">
+            <input
+              type="text"
+              className="flex-grow h-full px-4 rounded-l-[50px] border-none outline-none"
+              placeholder="Email Address"
+            />
+            <button className="flex w-[241px] h-[50px] justify-center items-center shrink-0 rounded-xl bg-[#FBFF28] cursor-pointer">
+              <span className="text-[#333] text-center font-poppins font-regular text-[18px] leading-[32px]">
+                Search Now
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/globals.css";
 const Nav = () => {
   return (
-    <nav className="flex justify-between items-center h-[100px] bg-[#5C4FFF] px-[88px]">
+    <nav className="flex justify-between items-center h-[100px] bg-[#5C4FFF] px-[124px]">
       <div className="text-white text-[26px] leading-[32px]">
         <span className="font-poppins font-medium">STARTUP</span>
         <span className="font-poppins font-black">YAR</span>
